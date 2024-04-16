@@ -1,9 +1,9 @@
 <template>
     <section class="header">
         <div class="container">
-            <h1 class="title">
-            Boolflix
-            </h1>
+            <div class="logo">
+                <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+            </div>
             <div class="search_bar">
                 <input type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall">
                 <button @click="filmCall">search</button>
@@ -55,6 +55,9 @@ export default {
 <style lang="scss" scoped>
 .header{
     background-color: #1B1B1B;
+    .logo{
+        max-width: 150px;
+    }
     .container {
         display: flex;
         align-items: center;
