@@ -1,4 +1,5 @@
 <template>
+    <div>
         <p>Titolo: {{ title }}</p>
         <p>Titolo og: {{ originalTitle }}</p>
         <p>Lingua: {{ element.original_language }} 
@@ -9,6 +10,8 @@
         </p>
         <p>Voto: {{ starConverter(element.vote_average) }}</p>
         <img :src="`https://image.tmdb.org/t/p/w154/${element.poster_path}`" alt="">
+
+    </div>
 </template>
 
 <script>
@@ -17,7 +20,7 @@ export default {
     props : ['element','title','originalTitle'],
 
     methods: {
-        starConverter() {
+        starConverter(vote) {
             const score =  Math.floor(vote / 2)
             return score
         }
