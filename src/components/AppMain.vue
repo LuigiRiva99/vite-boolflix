@@ -1,16 +1,16 @@
 <template>
     <section class="main_page">
-        <div class="flex container">
-            <ul>
+        <div class="container">
+            <h2 v-if="store.filmList.length !== 0">Films</h2>
+            <ul class="row">
                 <h2 v-if="store.filmList.length === 0"  class="no_results">Nessun film trovato</h2>
-                <h2 v-if="store.filmList.length !== 0">Films</h2>
                 <li v-for="film in store.filmList">
                     <AppCard :element="film" :title="film.title" :originalTitle="film.original_title"/>
                 </li>
             </ul>
-            <ul>
+            <h2 v-if="store.seriesList.length !== 0">Series</h2>
+            <ul class="row">
                 <h2 v-if="store.seriesList.length === 0" class="no_results">Nessuna serie TV trovata</h2>
-                <h2 v-if="store.seriesList.length !== 0">Series</h2>
                 <li v-for="series in store.seriesList">
                     <AppCard :element="series" :title="series.name" :originalTitle="series.original_name"/>
                 </li>
@@ -36,8 +36,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.main_page{
+    background-color: #1B1B1B;
+    color: white;
+}
+
 .container{
-    margin: 0 auto;
+    margin: 0 20px;
     max-width: 1200px;
 }
 
@@ -46,6 +52,10 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+}
+
+.row{
+    display: flex;
 }
 
 .no_results {

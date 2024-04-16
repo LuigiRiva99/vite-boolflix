@@ -55,6 +55,7 @@ export default {
 <style lang="scss" scoped>
 .header{
     background-color: #1B1B1B;
+    padding-bottom: 20px;
     .logo{
         max-width: 150px;
     }
@@ -63,7 +64,6 @@ export default {
         align-items: center;
         justify-content: space-between;
         padding: 10px;
-        margin-bottom: 10px;
         .title{
             color: red;
         }
