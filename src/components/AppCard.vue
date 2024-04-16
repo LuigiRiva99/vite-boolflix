@@ -12,7 +12,7 @@
             </p>
             <p><span class="card_vote">Voto: </span><font-awesome-icon v-for="i in 5" :class="i <= starConverter(element.vote_average) ? 'star':''" icon="star"/></p>
         </div>
-        <img class="card_poster" :src="`https://image.tmdb.org/t/p/w154/${element.poster_path}`" alt="">
+        <img class="card_poster" :src="`https://image.tmdb.org/t/p/original/${element.poster_path}`" alt="">
     </div>
 </template>
 
@@ -21,11 +21,8 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { longArrowRight } from 'fontawesome'
-// import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faStar)
-// library.add(faSearch)
 
 export default {
     props : ['element','title','originalTitle'],
@@ -48,7 +45,6 @@ export default {
 
         cardInfoToggle(status) {
             this.cardInfo = status
-            console.log(this.cardInfo);
         }
     }
 }

@@ -5,8 +5,9 @@
                 <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
             </div>
             <div class="search_bar">
-                <input type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall">
-                <button @click="filmCall">search</button>
+                <input type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall" v-show="searchBarVisiblenp">
+                <!-- <button @click="filmCall">search</button> -->
+                <font-awesome-icon class="search_icon" icon="search" @click="toggleSearch"/>
             </div>
         </div>
     </section>
@@ -15,39 +16,53 @@
 <script>
 import { store } from '../store.js'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSearch)
 
 export default {
     data() {
         return{
-            store
+            store,
+            searchBarVisible: false
         }
     },
 
-    methods : {
-    filmCall() {
-        axios.get('https://api.themoviedb.org/3/search/movie',{
-            params: {
-                api_key: store.apiKey,
-                query: store.userInput,
-                }
-        }
-        ).then((res) => {
-          store.filmList = res.data.results
-          //console.log(store.filmList);
-        }),
-    
-        axios.get('https://api.themoviedb.org/3/search/tv',{
-            params: {
-                api_key: store.apiKey,
-                query: store.userInput
-            }
-        }).then((res) => {
-            store.seriesList = res.data.results
-            // console.log(store.seriesList);
-        })
+    components:{
+        FontAwesomeIcon
+    },
 
-        store.userInput = ''
-    }
+    methods : {
+        filmCall() {
+            axios.get('https://api.themoviedb.org/3/search/movie',{
+                params: {
+                    api_key: store.apiKey,
+                    query: store.userInput,
+                    }
+            }
+            ).then((res) => {
+            store.filmList = res.data.results
+            //console.log(store.filmList);
+            }),
+        
+            axios.get('https://api.themoviedb.org/3/search/tv',{
+                params: {
+                    api_key: store.apiKey,
+                    query: store.userInput
+                }
+            }).then((res) => {
+                store.seriesList = res.data.results
+                // console.log(store.seriesList);
+            })
+
+            store.userInput = ''
+        },
+
+        toggleSearch() {
+            this.searchBarVisible = !this.searchBarVisible
+        }
   },
 }
 </script>
@@ -71,6 +86,14 @@ export default {
         button {
             margin-left: 10px;
             padding: 2px;
+        }
+
+        .search_icon{
+            color: white;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }

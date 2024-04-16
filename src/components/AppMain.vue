@@ -40,6 +40,7 @@ export default {
 .main_page{
     background-color: #1B1B1B;
     color: white;
+    height: 100%;
 }
 
 .container{
