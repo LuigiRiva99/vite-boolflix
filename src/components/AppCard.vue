@@ -9,11 +9,10 @@
                 <img v-else-if="element.original_language === 'fr'" width="30" height="30" src="https://img.icons8.com/emoji/48/france-emoji.png" alt=""/>
                 <img v-else-if="element.original_language === 'en'" width="30" height="30" src="https://img.icons8.com/emoji/48/us-outlying-islands-emoji.png" alt=""/>
                 <img v-else-if="element.original_language === 'ja'" width="30" height="30" src="https://img.icons8.com/color/48/japan.png" alt="japan"/>
-                <span v-else>{{ element.original_language }} </span>
             </p>
             <p><span class="card_vote">Voto: </span><font-awesome-icon v-for="i in 5" :class="i <= starConverter(element.vote_average) ? 'star':''" icon="star"/></p>
         </div>
-        <img class="card_poster" :src="`https://image.tmdb.org/t/p/w780/${element.poster_path}`" alt="">
+        <img class="card_poster" :src="`https://image.tmdb.org/t/p/w342/${element.poster_path}`" alt="">
     </div>
 </template>
 
@@ -51,6 +50,7 @@ export default {
     margin: 2px;
     position: relative;
 
+
     &:hover{
         cursor: pointer;
         border: 3px solid red;
@@ -65,12 +65,12 @@ export default {
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-    padding: 35px;
+    padding: 20px;
     background-color: rgba( #1B1B1B,0.8);
     position: absolute;
     z-index: 999;
     color: white;
-    text-wrap: auto;
+    text-wrap: wrap;
 }
 
 .card_title, .card_ogtitle, .card_vote{

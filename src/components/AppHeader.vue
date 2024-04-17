@@ -1,8 +1,18 @@
 <template>
     <section class="header">
         <div class="container">
-            <div class="logo">
-                <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+            <div class="home">
+                <div class="logo">
+                    <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
+                </div>
+                <div class="nav">
+                    <ul class="nav_list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Serie TV</a></li>
+                        <li><a href="#">Film</a></li>
+                        <li><a href="#">Originali</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="search_section">
                 <input class="search_bar" type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall" v-show="searchBarVisible">
@@ -71,6 +81,23 @@ export default {
         align-items: center;
         justify-content: space-between;
         padding: 10px;
+
+        .home{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+
+            .nav_list{
+                display: flex;
+                gap: 20px;
+                margin-left: 50px;
+
+                li:hover {
+                    font-weight: bold;
+                }
+            }
+        }
         .title{
             color: red;
         }
