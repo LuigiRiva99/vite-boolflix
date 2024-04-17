@@ -5,7 +5,7 @@
                 <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
             </div>
             <div class="search_bar">
-                <input type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall" v-show="searchBarVisiblenp">
+                <input type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall" v-show="searchBarVisible">
                 <!-- <button @click="filmCall">search</button> -->
                 <font-awesome-icon class="search_icon" icon="search" @click="toggleSearch"/>
             </div>
@@ -16,11 +16,7 @@
 <script>
 import { store } from '../store.js'
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faSearch)
 
 export default {
     data() {
@@ -28,10 +24,6 @@ export default {
             store,
             searchBarVisible: false
         }
-    },
-
-    components:{
-        FontAwesomeIcon
     },
 
     methods : {
