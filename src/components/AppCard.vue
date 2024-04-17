@@ -4,15 +4,16 @@
             <p><span class="card_title">Titolo: </span>{{ title }}</p>
             <p><span class="card_ogtitle">Titolo og: </span> {{ originalTitle }}</p>
             <p class="card_language">
-                <span class="card_vote">Lingua: </span>{{ element.original_language }} 
+                <span class="card_vote">Lingua: </span>
                 <img v-if="element.original_language === 'it'" width="30" height="30" src="https://img.icons8.com/emoji/48/italy-emoji.png" alt=""/>
-                <img v-if="element.original_language === 'fr'" width="30" height="30" src="https://img.icons8.com/emoji/48/france-emoji.png" alt=""/>
-                <img v-if="element.original_language === 'en'" width="30" height="30" src="https://img.icons8.com/emoji/48/us-outlying-islands-emoji.png" alt=""/>
-                <img v-if="element.original_language === 'ja'" width="30" height="30" src="https://img.icons8.com/color/48/japan.png" alt="japan"/>
+                <img v-else-if="element.original_language === 'fr'" width="30" height="30" src="https://img.icons8.com/emoji/48/france-emoji.png" alt=""/>
+                <img v-else-if="element.original_language === 'en'" width="30" height="30" src="https://img.icons8.com/emoji/48/us-outlying-islands-emoji.png" alt=""/>
+                <img v-else-if="element.original_language === 'ja'" width="30" height="30" src="https://img.icons8.com/color/48/japan.png" alt="japan"/>
+                <span v-else>{{ element.original_language }} </span>
             </p>
             <p><span class="card_vote">Voto: </span><font-awesome-icon v-for="i in 5" :class="i <= starConverter(element.vote_average) ? 'star':''" icon="star"/></p>
         </div>
-        <img class="card_poster" :src="`https://image.tmdb.org/t/p/original/${element.poster_path}`" alt="">
+        <img class="card_poster" :src="`https://image.tmdb.org/t/p/w780/${element.poster_path}`" alt="">
     </div>
 </template>
 
@@ -69,6 +70,7 @@ export default {
     position: absolute;
     z-index: 999;
     color: white;
+    text-wrap: auto;
 }
 
 .card_title, .card_ogtitle, .card_vote{

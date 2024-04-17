@@ -4,8 +4,8 @@
             <div class="logo">
                 <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="">
             </div>
-            <div class="search_bar">
-                <input type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall" v-show="searchBarVisible">
+            <div class="search_section">
+                <input class="search_bar" type="search" placeholder="Cerca un prodotto" v-model="store.userInput" @keyup.enter="filmCall" v-show="searchBarVisible">
                 <!-- <button @click="filmCall">search</button> -->
                 <font-awesome-icon class="search_icon" icon="search" @click="toggleSearch"/>
             </div>
@@ -32,9 +32,8 @@ export default {
                 params: {
                     api_key: store.apiKey,
                     query: store.userInput,
-                    }
-            }
-            ).then((res) => {
+                }
+            }).then((res) => {
             store.filmList = res.data.results
             //console.log(store.filmList);
             }),
@@ -60,8 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../style/partials/variables' as *;
 .header{
-    background-color: #1B1B1B;
+    background-color: $brand-color;
     padding-bottom: 20px;
     .logo{
         max-width: 150px;
@@ -80,11 +80,27 @@ export default {
             padding: 2px;
         }
 
-        .search_icon{
-            color: white;
-
-            &:hover {
-                cursor: pointer;
+        .search_section{
+            display: flex;
+            align-items: center;
+            .search_bar{
+                margin-right: 10px;
+                outline:none;
+                padding: 5px;
+                border-radius: 10px;
+                transition: border-color 0.3s ease;
+                &:focus {
+                    border-color: red;
+                    box-shadow: 0 0 10px red;
+                }
+            }
+    
+            .search_icon{
+                color: white;
+    
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
     }

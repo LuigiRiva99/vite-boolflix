@@ -11,11 +11,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // import icons
 import {
+    faArrowRight,
+    faArrowLeft,
 	faStar,
     faSearch
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faStar, faSearch)
+library.add(faStar, faSearch, faArrowRight, faArrowLeft)
 
 const app = createApp(App)
 
