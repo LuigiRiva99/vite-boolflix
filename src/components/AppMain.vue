@@ -59,7 +59,7 @@ export default {
 
         //serieTV
         scrollRightSeries() {
-            //this.$refs lo uso per selezionare il container con il ref container_film
+            //this.$refs lo uso per selezionare il container con il ref container_series
             this.$refs.container_series.scrollBy({
                 left: 300, 
                 behavior: "smooth"
@@ -86,13 +86,13 @@ export default {
 
 .container{
     margin: 0 20px;
+    height: 100%;
     .row{
         display: flex;
         position: relative;
-
         .slide_container {
             width: 100%;
-            overflow-x: auto;
+            overflow-x: hidden;
             white-space: nowrap;
         }
         .button_right, .button_left{
