@@ -13,7 +13,7 @@
             <p><span class="card_vote">Voto: </span><font-awesome-icon v-for="i in 5" :class="i <= starConverter(element.vote_average) ? 'star':''" icon="star"/></p>
             <p><span class="card_overview">Overview: </span>{{ element.overview }}</p>
         </div>
-        <img class="card_poster" :src="`https://image.tmdb.org/t/p/w342/${element.poster_path}`" alt="">
+        <img class="card_poster" :src="isPosterAvailable()" alt="">
     </div>
 </template>
 
@@ -38,6 +38,14 @@ export default {
         cardInfoToggle(status) {
             this.cardInfo = status
         },
+
+        isPosterAvailable() {
+            if (this.element.poster_path === null) {
+                return `https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456`
+            } else{
+                return `https://image.tmdb.org/t/p/w342/${this.element.poster_path}`
+            }
+        }
     }
 }
 </script>
