@@ -20,8 +20,8 @@
                         <AppCard :element="series" :title="series.name" :originalTitle="series.original_name"/>
                     </li>
                 </div>
-                <button v-if="store.filmList.length !== 0" class="button_right" @click="scrollRightSeries"><font-awesome-icon icon="arrow-right" class="arrow"/></button>
-                <button v-if="store.filmList.length !== 0" class="button_left" @click="scrollLeftSeries"><font-awesome-icon icon="arrow-left" class="arrow"/></button>
+                <button v-if="store.seriesList.length !== 0" class="button_right" @click="scrollRightSeries"><font-awesome-icon icon="arrow-right" class="arrow"/></button>
+                <button v-if="store.seriesList.length !== 0" class="button_left" @click="scrollLeftSeries"><font-awesome-icon icon="arrow-left" class="arrow"/></button>
             </ul>
         </div>
     </section>
@@ -94,6 +94,7 @@ export default {
             width: 100%;
             overflow-x: hidden;
             white-space: nowrap;
+            
         }
         .button_right, .button_left{
             width: 40px;

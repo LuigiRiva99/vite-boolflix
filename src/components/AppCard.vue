@@ -24,7 +24,7 @@ export default {
 
     data() {
         return{
-            cardInfo: false
+            cardInfo: false,
         }
     },
 
@@ -37,7 +37,7 @@ export default {
 
         cardInfoToggle(status) {
             this.cardInfo = status
-        }
+        },
     }
 }
 </script>
