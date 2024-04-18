@@ -81,10 +81,6 @@ export default {
 
 .card_info{
 
-    p{
-        margin: 10px 0px;  
-        line-height: 22px; 
-    }
     height: 100%;
     width: 100%;
     // display: flex;
@@ -96,17 +92,25 @@ export default {
     color: white;
     white-space: normal; 
     overflow: auto;
-}
+    
+    p{
+        margin: 10px 0px;  
+        line-height: 22px; 
 
-.card_title, .card_ogtitle, .card_vote, .card_overview{
-    font-weight: bold;
-    color: rgb(255, 31, 31);
-}
+        .card_title, .card_ogtitle, .card_vote, .card_overview{
+            font-weight: bold;
+            color: rgb(255, 31, 31);
+        }
+        .star {
+            color: rgb(230, 234, 49);
+        }
+    }
 
-.card_language{
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    .card_language{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
 }
 
 .card_poster{
@@ -114,7 +118,4 @@ export default {
     height: 100%;
 }
 
-.star {
-    color: rgb(230, 234, 49);
-}
 </style>
