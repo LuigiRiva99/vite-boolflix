@@ -99,8 +99,12 @@ export default {
                 gap: 20px;
                 margin-left: 50px;
 
-                li:hover {
+                li {
                     font-weight: bold;
+
+                    &:hover {
+                        color: red;
+                    }
                 }
             }
         }

@@ -5,10 +5,8 @@
             <p><span class="card_ogtitle">Titolo og: </span> {{ originalTitle }}</p>
             <p class="card_language">
                 <span class="card_vote">Lingua: </span>
-                <img v-if="element.original_language === 'it'" width="30" height="30" src="https://img.icons8.com/emoji/48/italy-emoji.png" alt=""/>
-                <img v-else-if="element.original_language === 'fr'" width="30" height="30" src="https://img.icons8.com/emoji/48/france-emoji.png" alt=""/>
-                <img v-else-if="element.original_language === 'en'" width="30" height="30" src="https://img.icons8.com/emoji/48/us-outlying-islands-emoji.png" alt=""/>
-                <img v-else-if="element.original_language === 'ja'" width="30" height="30" src="https://img.icons8.com/color/48/japan.png" alt="japan"/>
+                <img v-if="getLanguageFlag() !== 'unknown'" width="30" height="30" :src="getLanguageFlag()" alt=""/>
+                <span v-else>{{ element.original_language }}</span>
             </p>
             <p><span class="card_vote">Voto: </span><font-awesome-icon v-for="i in 5" :class="i <= starConverter(element.vote_average) ? 'star':''" icon="star"/></p>
             <p><span class="card_overview">Overview: </span>{{ element.overview }}</p>
@@ -44,6 +42,21 @@ export default {
                 return `https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456`
             } else{
                 return `https://image.tmdb.org/t/p/w342/${this.element.poster_path}`
+            }
+        },
+
+        getLanguageFlag() {
+            switch (this.element.original_language) {
+                case 'it':
+                    return 'https://img.icons8.com/emoji/48/italy-emoji.png';
+                case 'fr':
+                    return 'https://img.icons8.com/emoji/48/france-emoji.png';
+                case 'en':
+                    return 'https://img.icons8.com/emoji/48/us-outlying-islands-emoji.png';
+                case 'ja':
+                    return 'https://img.icons8.com/color/48/japan.png';
+                default: 
+                    return 'unknown'
             }
         }
     }
