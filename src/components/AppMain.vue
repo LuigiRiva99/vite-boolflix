@@ -3,7 +3,7 @@
         <div class="container">
             <h2 v-if="store.filmList.length !== 0">Films</h2>
             <ul class="row">
-                <h2 v-if="store.filmList.length === 0"  class="no_results">Nessun film trovato</h2>
+                <!-- <h2 v-if="store.filmList.length === 0"  class="no_results">Nessun film trovato</h2> -->
                 <div class="slide_container row" ref="container_film">
                     <li v-for="film in store.filmList">
                         <AppCard :element="film" :title="film.title" :originalTitle="film.original_title" ref="card"/>
@@ -14,7 +14,7 @@
             </ul>
             <h2 v-if="store.seriesList.length !== 0">Series</h2>
             <ul class="row">
-                <h2 v-if="store.seriesList.length === 0" class="no_results">Nessuna serie TV trovata</h2>
+                <!-- <h2 v-if="store.seriesList.length === 0" class="no_results">Nessuna serie TV trovata</h2> -->
                 <div class="slide_container row" ref="container_series">
                     <li v-for="series in store.seriesList">
                         <AppCard :element="series" :title="series.name" :originalTitle="series.original_name"/>
